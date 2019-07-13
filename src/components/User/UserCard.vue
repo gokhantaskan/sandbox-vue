@@ -6,13 +6,9 @@
           <img class="user__image" :src="user.avatar" :alt="user.name + ' ' + user.surname">
         </div>
         <div>
-          <h4 class="user__username">{{ user.username }}</h4>
-          <h5 class="user__name">{{ user.name }} {{ user.surname }}</h5>
-          <h6 class="user__work">
-            <span class="user__work__title">{{ user.title }}</span>
-            {{' '}}
-            <span class="user__work__company">at {{ user.company }}</span>
-          </h6>
+          <h4 class="user__name">{{ user.name }} {{ user.surname }}</h4>
+          <h5 class="user__title">{{ user.title }}</h5>
+          <h6 class="user__company">{{ user.company }}</h6>
           <table>
             <tbody>
               <tr>
@@ -22,7 +18,12 @@
                   </div>
                 </td>
                 <td class="user__email td td--right">
-                  <div class="td">{{ user.email.toLowerCase() }}</div>
+                  <div class="td">
+                    <a
+                      :href="`mailto:${user.email.toLowerCase()}`"
+                      target="blank"
+                    >{{ user.email.toLowerCase() }}</a>
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -32,7 +33,9 @@
                   </div>
                 </td>
                 <td>
-                  <div class="user__phone td td--right">{{ user.phone }}</div>
+                  <div class="user__phone td td--right">
+                    <a :href="`tel:${user.phone}`" target="blank">{{ user.phone }}</a>
+                  </div>
                 </td>
               </tr>
             </tbody>

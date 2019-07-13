@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const jsonUsersURL = "https://107px.codesandbox.io";
+const jsonUsersURL = "https://8oidj.codesandbox.io";
 
 export const moduleUsers = {
 	state: {
@@ -18,7 +18,11 @@ export const moduleUsers = {
 				.then(response => {
 					commit("SET_USERS", response.data);
 				})
-				.catch(error => alert(error));
+				.catch(error =>
+					alert(
+						`Please don't forget to change jsonUsersURL in store/moduleUsers ${error}`
+					)
+				);
 		}
 	},
 	getters: {
