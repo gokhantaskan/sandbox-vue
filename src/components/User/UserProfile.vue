@@ -1,13 +1,30 @@
 <template>
   <div v-if="user">
     <div class="user-profile">
-      <h1 class="user-profile__name">
-        {{ user.surname }}, {{ user.name }}
-        <sup class="user-profile__id">{{ user.id }}</sup>
-      </h1>
-      <p>@{{ user.username }}</p>
-      <p>{{ user.about }}</p>
-      <table>
+      <div class="d-flex flex-row justify-content-between">
+        <div>
+          <h1 class="user-profile__name">
+            {{ user.name }} {{ user.surname }}
+            <sup class="user-profile__id">{{ user.id }}</sup>
+          </h1>
+          <p class="user-profile__username">@{{ user.username }}</p>
+        </div>
+        <div class="is-relative">
+          <div class="user-profile__avatar-back is-absolute"></div>
+          <img
+            class="user-profile__avatar"
+            :src="user.avatar"
+            :alt="`${user.name} ${user.surname}`"
+          >
+        </div>
+      </div>
+      <h3>
+        <span class="user-profile__title">{{ user.title }}</span>
+        <br>
+        <span class="user-profile__company">{{ user.company }}</span>
+      </h3>
+      <p class="user-profile__about">{{ user.about }}</p>
+      <table class="user-profile__table">
         <tbody>
           <tr>
             <td>
@@ -48,7 +65,6 @@
           </tr>
         </tbody>
       </table>
-      <pre>{{ user }}</pre>
     </div>
   </div>
   <div v-else>Loading...</div>

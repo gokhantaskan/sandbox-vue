@@ -5,15 +5,25 @@
 </template>
 
 <script>
+import { randomId } from "./utils";
+
 export default {
-  name: "App",
-  components: {}
+	name: "App",
+	components: {},
+	data() {
+		return {
+			appClass: randomId()
+		};
+	},
+	created() {
+		console.log("random ID from utils:" + randomId());
+	}
 };
 </script>
 
-<style>
+<style lang="scss">
 #app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 </style>

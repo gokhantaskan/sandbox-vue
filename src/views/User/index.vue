@@ -1,9 +1,9 @@
 <template>
-	<div class="user-profile">
-		<div class="container py-5">
-			<UserProfile :data="user" />
-		</div>
-	</div>
+  <div class="user-profile">
+    <div class="container py-5">
+      <UserProfile :data="user"/>
+    </div>
+  </div>
 </template>
 
 <script>

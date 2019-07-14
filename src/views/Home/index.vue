@@ -1,10 +1,10 @@
 <template>
-	<div class="home">
-		<div class="container py-5">
-			<h1>Home</h1>
-			<UserCard :data="users" />
-		</div>
-	</div>
+  <div class="home">
+    <div class="container py-5">
+      <h1>Home</h1>
+      <UserCard :data="users"/>
+    </div>
+  </div>
 </template>
 
 <script>

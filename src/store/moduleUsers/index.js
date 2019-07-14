@@ -18,7 +18,7 @@ export const moduleUsers = {
 				.then(response => {
 					commit("SET_ALL_USERS", response.data);
 				})
-				.catch(error => alert(error));
+				.catch(error => alert(error + "CHANGE THE DOMAIN INSIDE MODULE USERS"));
 		},
 		fetchSingleUser({ commit }, username) {
 			axios
@@ -30,7 +30,7 @@ export const moduleUsers = {
 					);
 					commit("SET_SINGLE_USER", data);
 				})
-				.catch(error => alert(error));
+				.catch(error => alert(error + "CHANGE THE DOMAIN INSIDE MODULE USERS"));
 		}
 	},
 	getters: {
