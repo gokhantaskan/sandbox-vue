@@ -5,7 +5,7 @@ const jsonURL = "https://8oidj.codesandbox.io/db.json";
 export const moduleUsers = {
 	state: {
 		users: [],
-		user: {}
+		user: []
 	},
 	mutations: {
 		SET_ALL_USERS: (state, users) => (state.users = users),
@@ -23,10 +23,11 @@ export const moduleUsers = {
 		fetchSingleUser({ commit }, username) {
 			axios
 				.get(`${jsonURL}`)
-				.then(response => {
-					let data = {};
-					data = response.data.find(user => user.username === username);
-					console.log(data);
+				.then(async response => {
+					const data = [];
+					await data.push(
+						response.data.find(user => user.username === username)
+					);
 					commit("SET_SINGLE_USER", data);
 				})
 				.catch(error => alert(error));

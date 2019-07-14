@@ -91,7 +91,7 @@ export default {
 	name: "UserCard",
 	props: {
 		data: {
-			type: [Object, Array],
+			type: [Array],
 			required: true,
 			default: null
 		}

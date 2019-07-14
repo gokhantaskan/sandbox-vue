@@ -1,7 +1,7 @@
 <template>
   <div v-if="data.length">
     <div class="user-profile">
-      <pre>{{ data }}</pre>
+      <pre>{{ singleUser }}</pre>
     </div>
   </div>
   <div v-else>Loading...</div>
@@ -12,9 +12,14 @@ export default {
 	name: "UserProfile",
 	props: {
 		data: {
-			type: Object,
+			type: [Array, Object],
 			required: true,
 			default: null
+		}
+	},
+	data() {
+		return {
+			singleUser: this.data[0]
 		}
 	}
 };
