@@ -1,33 +1,39 @@
 import axios from "axios";
 
-const jsonUsersURL = "https://8oidj.codesandbox.io";
+const jsonURL = "https://8oidj.codesandbox.io/db.json";
 
 export const moduleUsers = {
 	state: {
-		users: []
+		users: [],
+		user: {}
 	},
 	mutations: {
-		SET_USERS(state, users) {
-			state.users = users;
-		}
+		SET_ALL_USERS: (state, users) => (state.users = users),
+		SET_SINGLE_USER: (state, user) => (state.user = user)
 	},
 	actions: {
-		fetchUsers({ commit }) {
+		fetchAllUsers({ commit }) {
 			axios
-				.get(`${jsonUsersURL}/db.json`)
+				.get(`${jsonURL}`)
 				.then(response => {
-					commit("SET_USERS", response.data);
+					commit("SET_ALL_USERS", response.data);
 				})
-				.catch(error =>
-					alert(
-						`Please don't forget to change jsonUsersURL in store/moduleUsers ${error}`
-					)
-				);
+				.catch(error => alert(error));
+		},
+		fetchSingleUser({ commit }, username) {
+			axios
+				.get(`${jsonURL}`)
+				.then(response => {
+					let data = {};
+					data = response.data.find(user => user.username === username);
+					console.log(data);
+					commit("SET_SINGLE_USER", data);
+				})
+				.catch(error => alert(error));
 		}
 	},
 	getters: {
-		getUsers(state) {
-			return state.users;
-		}
+		getAllUsers: state => state.users,
+		getSingleUser: state => state.user
 	}
 };

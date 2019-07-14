@@ -8,7 +8,8 @@
   }
 
   &--user {
-
+    
+    // User Information under Card
     .user {
       @include flexbox($align: flex-start, $justify: flex-start);
       min-width: 0px;
@@ -34,14 +35,14 @@
         font-weight: 500;
         font-size: 1.125rem;
         margin: 0;
-        margin-bottom: .375rem;
+        margin-bottom: .5rem;
         color: $accent-color;
       }
 
       &__title {
         font-weight: 500;
         font-size: 1rem;
-        margin: 0 0 .125rem;
+        margin: 0 0 .25rem;
         color: $primary-text-color;
       }
 

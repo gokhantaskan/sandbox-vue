@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home";
+import User from "../views/User";
 import About from "../views/About";
-import UserProfile from "../views/User/UserProfile";
 
 Vue.use(VueRouter);
 
@@ -13,14 +13,14 @@ const routes = [
 		component: Home
 	},
 	{
+		path: "/:username",
+		name: "User",
+		component: User
+	},
+	{
 		path: "/about",
 		name: "About",
 		component: About
-	},
-	{
-		path: "/user/:id",
-		name: "UserProfile",
-		component: UserProfile
 	}
 ];
 
