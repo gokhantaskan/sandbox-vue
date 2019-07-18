@@ -1,6 +1,6 @@
 <template>
 	<div v-if="data.length">
-		<div class="card card--user" v-for="(user, id) in data" :key="id">
+		<div class="card card--user" v-for="user in data" :key="user.id">
 			<div class="user">
 				<div class="user__image-wrapper">
 					<img
@@ -67,7 +67,7 @@
 								</td>
 								<td>
 									<div class="user__phone td td--right">
-										<a :href="`tel:${user.phone}`" target="blank">
+										<a :href="`tel:${user.phone}`" target="_blank">
 											{{ user.phone }}
 										</a>
 									</div>

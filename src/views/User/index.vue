@@ -2,6 +2,7 @@
   <div class="user-profile">
     <div class="container py-5">
       <UserProfile :data="user"/>
+      <GButton class="mt-4" color="accent" @click="$router.go(-1)">Go back</GButton>
     </div>
   </div>
 </template>
